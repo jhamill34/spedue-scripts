@@ -1,0 +1,20 @@
+{
+  "name": "@spedue/create-app",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "index.js"
+  ],
+  "bin": {
+    "create-spedue-app": "./index.js"
+  },
+  "dependencies": {
+    "@spedue/utils": "*",
+    "chalk": "^3.0.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}

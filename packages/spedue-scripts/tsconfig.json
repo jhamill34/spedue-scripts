@@ -1,0 +1,11 @@
+{
+  "include": [
+    "bin",
+    "config",
+    "scripts"
+  ],
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "skipLibCheck": true
+  }
+}

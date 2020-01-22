@@ -1,12 +1,17 @@
 {
-  "name": "eslint-config-spedue",
+  "name": "@spedue/eslint-config",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "private": false,
   "files": [
-    "index.js"
+    "dist"
   ],
+  "scripts": {
+    "build": "tsc --outDir dist",
+    "clean": "rm -rf dist",
+    "compile": "tsc --noEmit"
+  },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
@@ -21,5 +26,8 @@
     "eslint-plugin-testing-library": "^1.4.1",
     "eslint-plugin-tsdoc": "^0.2.0",
     "prettier": "^1.19.1"
+  },
+  "devDependencies": {
+    "@types/eslint": "^6.1.3"
   }
 }

@@ -1,18 +1,18 @@
-const fs = require('fs')
-const path = require('path')
-const ts = require('typescript')
+import * as fs from 'fs'
+import * as path from 'path'
+import ts = require('typescript')
 
 const appDir = fs.realpathSync(process.cwd())
 
-function resolveApp(relativePath) {
+function resolveApp(relativePath: string): string {
   return path.resolve(appDir, relativePath)
 }
 
-module.exports = {
+export const paths = {
   appRoot: resolveApp('.'),
   appBuild: resolveApp('build'),
   appHtml: resolveApp('public/index.html'),
   appTsConfig: ts.findConfigFile(appDir, ts.sys.fileExists, 'tsconfig.json'),
   appTsDist: resolveApp('dist'),
-  appSrc: resolveApp('src')
+  appSrc: resolveApp('src'),
 }

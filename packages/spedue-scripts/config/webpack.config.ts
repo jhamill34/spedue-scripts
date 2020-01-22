@@ -1,16 +1,17 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const paths = require('./paths')
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import { Configuration } from 'webpack'
+import { paths } from './paths'
 
-module.exports = {
+export const config: Configuration = {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
     path: paths.appBuild,
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -18,15 +19,15 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'babel-loader',
         options: {
-          presets: ['spedue']
-        }
-      }
-    ]
+          presets: ['@spedue/babel-preset'],
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
-    })
-  ]
+    }),
+  ],
 }

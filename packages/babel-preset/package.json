@@ -1,11 +1,16 @@
 {
-  "name": "babel-preset-spedue",
+  "name": "@spedue/babel-preset",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "tsc --outDir ./dist",
+    "clean": "rm -rf dist",
+    "compile": "tsc --noEmit"
+  },
   "files": [
-    "index.js"
+    "dist"
   ],
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -14,5 +19,8 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.5"
   }
 }

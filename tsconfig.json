@@ -1,0 +1,24 @@
+{
+  "exclude": [
+    "node_modules",
+  ],
+  "compilerOptions": {
+    "allowJs": false,
+    "target": "es6",                     
+    "module": "commonjs",                
+    "jsx": "react",    
+    "sourceMap": true,                   
+    "removeComments": true,              
+    "downlevelIteration": true,          
+    "strict": true,                      
+    "noUnusedLocals": true,              
+    "noUnusedParameters": true,          
+    "noImplicitReturns": true,           
+    "noFallthroughCasesInSwitch": true,  
+    // "esModuleInterop": true,             
+    "experimentalDecorators": true,      
+    "emitDecoratorMetadata": true,       
+    "skipLibCheck": true,
+    "declaration": true
+  }
+}
