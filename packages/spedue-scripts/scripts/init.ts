@@ -6,40 +6,6 @@ import * as fs from 'fs-extra'
 import { parseOptions } from '@spedue/utils'
 import { paths } from '../config/paths'
 
-//***********************************************
-//*  Extract into @spedue/ts-guards
-//***********************************************
-
-// type TypeGuard<T> = (val: unknown) => val is T
-
-// function isString(val: unknown): val is string {
-//   return typeof val === 'string'
-// }
-
-// function hasProperty<PropType extends string, AssertedType = unknown>(
-//   x: unknown,
-//   prop: PropType,
-//   typeguard: TypeGuard<AssertedType>
-// ): x is { [P in PropType]: AssertedType } {
-//   if (typeof x === 'object' && x !== null && prop in x) {
-//     return typeguard((x as { [P in PropType]: AssertedType })[prop])
-//   } else {
-//     return false
-//   }
-// }
-//
-// function isStringMap(value: unknown): value is StringMap {
-//   if (typeof value === 'object' && value !== null) {
-//     return Object.values(value).every(v => typeof v === 'string')
-//   } else {
-//     return false
-//   }
-// }
-
-//***********************************************
-//*  End Extract into @spedue/ts-guards
-//***********************************************
-
 type Template = {
   location: string
   name: string

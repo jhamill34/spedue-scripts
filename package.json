@@ -9,6 +9,12 @@
     "packages/**",
     "templates/**"
   ],
+  "scripts": {
+    "build": "lerna run build",
+    "clean": "lerna run clean",
+    "compile": "lerna run compile",
+    "test": "lerna run test"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
