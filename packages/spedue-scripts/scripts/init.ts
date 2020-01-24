@@ -109,6 +109,15 @@ async function main(): Promise<void> {
     extends: '@spedue/eslint-config',
   }
 
+  packageJson.scripts = {
+    build: 'spedue pack',
+    clean: 'spedue clean',
+    compile: "spedue compile 'src/**/*' --noEmit",
+    lint: 'spedue lint',
+    start: 'spedue start',
+    test: 'spedue test',
+  }
+
   if (templateJson.dependencies) {
     if (packageJson.dependencies) {
       packageJson.dependencies = {
@@ -132,13 +141,9 @@ async function main(): Promise<void> {
   }
 
   if (templateJson.scripts) {
-    if (packageJson.scripts) {
-      packageJson.scripts = {
-        ...packageJson.scripts,
-        ...templateJson.scripts,
-      }
-    } else {
-      packageJson.scripts = templateJson.scripts
+    packageJson.scripts = {
+      ...packageJson.scripts,
+      ...templateJson.scripts,
     }
   }
 

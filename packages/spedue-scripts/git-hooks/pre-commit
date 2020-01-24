@@ -1,3 +1,53 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
 
-echo "I see you're about to commit..."
+echo $GIT_DIR
+
+STAGED=$(git diff --staged --name-only)
+TS_STAGED=$(echo "${STAGED}" | grep -E '\.tsx?$' | tr '\n' ' ')
+JS_STAGED=$(echo "${STAGED}" | grep -E '\.jsx?$' | tr '\n' ' ')
+
+STATUS=0
+
+tsLint() {
+  yarn lint $TS_STAGED
+
+  STATUS=$?
+  if [ $STATUS -ne 0 ]; then 
+    echo "TypeScript linting failed with exit code $STATUS"
+    exit $STATUS
+  fi
+
+  yarn compile
+  
+  STATUS=$?
+  if [ $STATUS -ne 0 ]; then 
+    echo "TypeScript compile failed with exit code $STATUS"
+    exit $STATUS
+  fi
+  
+  git add . 
+}
+
+jsLint() {
+  yarn lint $JS_STAGED
+  
+  STATUS=$?
+  if [ $STATUS -ne 0 ]; then 
+    echo "JavaScript linting failed with exit code $STATUS"
+    exit $STATUS
+  fi
+
+  git add . 
+}
+
+if [[ "$TS_STAGED" != "" ]]; then
+  tsLint
+else
+  echo "Didn't find any staged TypeScript files to lint. Skipping"
+fi
+
+if [[ "$JS_STAGED" != "" ]]; then
+  jsLint
+else
+  echo "Didn't find any staged JavaScript files to lint. Skipping"
+fi
