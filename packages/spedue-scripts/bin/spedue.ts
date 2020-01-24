@@ -1,12 +1,19 @@
 #!/usr/bin/env node
 
+import * as path from 'path'
 import * as crossSpawn from 'cross-spawn'
 import * as chalk from 'chalk'
+import * as glob from 'glob'
 
 const args = process.argv.slice(2)
 const script = args[0]
 
-if (['pack', 'clean', 'compile', 'lint', 'start', 'test'].includes(script)) {
+const scripts = glob
+  .sync(path.join(__dirname, '..', 'scripts', '*'))
+  .map(f => path.parse(f).name)
+  .filter(f => !f.includes('.'))
+
+if (scripts.includes(script)) {
   const result = crossSpawn.sync(
     'node',
     [require.resolve(`../scripts/${script}`), ...args.slice(1)],

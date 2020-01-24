@@ -8,6 +8,7 @@ process.on('unhandledRejection', err => {
 
 async function clean(dir: string): Promise<void> {
   return new Promise<void>((resolve, reject) => {
+    // TODO: change this to use fs-extra
     rimraf(dir, err => {
       if (err) {
         reject(err)

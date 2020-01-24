@@ -1,1 +1,3 @@
 #!/usr/bin/env bash
+
+echo "Are you sure you want to push?"
