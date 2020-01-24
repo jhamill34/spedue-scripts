@@ -29,4 +29,10 @@ describe('parseOptions', () => {
     expect(result.keys['template']).toEqual(true)
     expect(result.keys['noEmit']).toEqual(true)
   })
+
+  it('should parse back-to-back flags as booleans', () => {
+    const result = parseOptions(['one', '--template=file:/noEmit   '])
+
+    expect(result.keys['template']).toEqual('file:/noEmit')
+  })
 })

@@ -11,7 +11,7 @@ export function parseOptions(args: string[]): Options {
     keys: {},
   }
 
-  const RE = /--(\w+)=?(\w*)/
+  const RE = /--(\w+)=?(\S*)/
   for (let i = 0; i < args.length; i++) {
     const match = args[i].match(RE)
     if (match) {

@@ -9,4 +9,4 @@ function configure(): Partial<RequiredOptions> {
   }
 }
 
-export default configure()
+export = configure()

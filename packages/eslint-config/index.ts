@@ -49,4 +49,4 @@ function configure(): Linter.Config {
   }
 }
 
-export default configure()
+export = configure()

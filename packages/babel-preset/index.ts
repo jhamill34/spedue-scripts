@@ -10,4 +10,4 @@ function configure(): TransformOptions {
   }
 }
 
-export default configure()
+export default configure

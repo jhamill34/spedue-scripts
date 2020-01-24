@@ -4,17 +4,25 @@
   "license": "MIT",
   "private": false,
   "files": [
-    "index.js"
+    "dist"
   ],
   "bin": {
-    "create-spedue-app": "./index.js"
+    "create-spedue-app": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc --outDir dist",
+    "clearn": "rm -rf dist",
+    "compile": "tsc --noEmit",
+    "start": "rm -rf test-app && yarn build && node dist/index.js test-app --template='file:/Users/joshuarasmussen/Desktop/Code/websites/joshrasmussen/templates/react-template'"
   },
   "dependencies": {
     "@spedue/utils": "*",
     "chalk": "^3.0.0",
+    "fs-extra": "^8.1.0",
     "typescript": "^3.7.5"
   },
   "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
     "typescript": "^3.7.5"
   }
 }
