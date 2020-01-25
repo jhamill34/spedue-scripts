@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/**",
-    "templates/**"
+    "packages/*",
+    "templates/*"
   ],
   "scripts": {
     "build": "lerna run build",
