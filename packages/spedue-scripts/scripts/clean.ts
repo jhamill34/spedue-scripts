@@ -1,5 +1,5 @@
-import * as chalk from 'chalk'
-import * as rimraf from 'rimraf'
+import chalk from 'chalk'
+import rimraf from 'rimraf'
 import { paths } from '../config/paths'
 
 process.on('unhandledRejection', err => {

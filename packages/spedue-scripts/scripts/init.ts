@@ -1,8 +1,8 @@
-import * as path from 'path'
-import * as os from 'os'
-import * as chalk from 'chalk'
-import * as crossSpawn from 'cross-spawn'
-import * as fs from 'fs-extra'
+import path from 'path'
+import os from 'os'
+import chalk from 'chalk'
+import crossSpawn from 'cross-spawn'
+import fs from 'fs-extra'
 import { parseOptions } from '@spedue/utils'
 import { paths } from '../config/paths'
 
@@ -189,7 +189,7 @@ async function main(): Promise<void> {
     stdio: 'inherit',
   })
 
-  crossSpawn.sync('git', ['commit', '-m', '"chore: initial commit"'], {
+  crossSpawn.sync('git', ['commit', '-m', 'chore: initial commit'], {
     cwd: paths.appRoot,
     stdio: 'inherit',
   })

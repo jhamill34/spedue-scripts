@@ -1,6 +1,6 @@
-import * as chalk from 'chalk'
-import * as webpack from 'webpack'
-import * as WebpackDevServer from 'webpack-dev-server'
+import chalk from 'chalk'
+import webpack from 'webpack'
+import WebpackDevServer from 'webpack-dev-server'
 import { config } from '../config/webpack.config'
 
 process.on('unhandledRejection', err => {

@@ -9,7 +9,7 @@ JS_STAGED=$(echo "${STAGED}" | grep -E '\.jsx?$' | tr '\n' ' ')
 STATUS=0
 
 tsLint() {
-  yarn lint $TS_STAGED
+  yarn lint $TS_STAGED >/dev/null
 
   STATUS=$?
   if [ $STATUS -ne 0 ]; then 
@@ -17,7 +17,7 @@ tsLint() {
     exit $STATUS
   fi
 
-  yarn compile
+  yarn compile >/dev/null
   
   STATUS=$?
   if [ $STATUS -ne 0 ]; then 
@@ -29,7 +29,7 @@ tsLint() {
 }
 
 jsLint() {
-  yarn lint $JS_STAGED
+  yarn lint $JS_STAGED >/dev/null
   
   STATUS=$?
   if [ $STATUS -ne 0 ]; then 

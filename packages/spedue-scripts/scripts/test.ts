@@ -1,5 +1,5 @@
-import * as chalk from 'chalk'
-import * as jest from 'jest'
+import chalk from 'chalk'
+import jest from 'jest'
 import { parseOptions, Options } from '@spedue/utils'
 import { paths } from '../config/paths'
 

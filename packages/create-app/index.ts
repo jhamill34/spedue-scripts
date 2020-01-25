@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import * as path from 'path'
-import * as os from 'os'
-import * as fs from 'fs-extra'
-import * as chalk from 'chalk'
-import * as crossSpawn from 'cross-spawn'
+import path from 'path'
+import os from 'os'
+import fs from 'fs-extra'
+import chalk from 'chalk'
+import crossSpawn from 'cross-spawn'
 import { parseOptions } from '@spedue/utils'
 
 async function main(): Promise<void> {

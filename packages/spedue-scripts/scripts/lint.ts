@@ -1,4 +1,4 @@
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 import { CLIEngine } from 'eslint'
 import { parseOptions, Options } from '@spedue/utils'
 import { paths } from '../config/paths'

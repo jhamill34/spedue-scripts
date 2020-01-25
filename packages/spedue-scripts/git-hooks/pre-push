@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-yarn test --noWatch
+yarn test --noWatch >/dev/null
 
 STATUS=$?
 if [ $STATUS -ne 0 ]; then 

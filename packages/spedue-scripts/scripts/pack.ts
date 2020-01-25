@@ -1,5 +1,5 @@
-import * as chalk from 'chalk'
-import * as webpack from 'webpack'
+import chalk from 'chalk'
+import webpack from 'webpack'
 import { config } from '../config/webpack.config'
 
 process.on('unhandledRejection', err => {

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import * as path from 'path'
-import * as crossSpawn from 'cross-spawn'
-import * as chalk from 'chalk'
-import * as glob from 'glob'
+import path from 'path'
+import crossSpawn from 'cross-spawn'
+import chalk from 'chalk'
+import glob from 'glob'
 
 const args = process.argv.slice(2)
 const script = args[0]

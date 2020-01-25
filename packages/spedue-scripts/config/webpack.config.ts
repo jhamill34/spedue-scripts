@@ -1,4 +1,4 @@
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { Configuration } from 'webpack'
 import { paths } from './paths'
 
