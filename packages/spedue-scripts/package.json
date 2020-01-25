@@ -1,6 +1,6 @@
 {
   "name": "@spedue/scripts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "private": false,
   "bin": {
@@ -23,10 +23,10 @@
     "@commitlint/config-conventional": "^8.3.4",
     "@commitlint/lint": "^8.3.5",
     "@commitlint/load": "^8.3.5",
-    "@spedue/babel-preset": "*",
-    "@spedue/eslint-config": "*",
-    "@spedue/prettier-config": "*",
-    "@spedue/utils": "*",
+    "@spedue/babel-preset": "^0.1.0",
+    "@spedue/eslint-config": "^0.1.0",
+    "@spedue/prettier-config": "^0.1.0",
+    "@spedue/utils": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "babel-loader": "^8.0.6",
