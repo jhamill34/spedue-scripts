@@ -10,8 +10,7 @@
     "spedue": "./dist/bin/spedue.js"
   },
   "files": [
-    "scripts",
-    "bin"
+    "dist"
   ],
   "scripts": {
     "build": "tsc --outDir dist --rootDir . && cp -R git-hooks dist",
