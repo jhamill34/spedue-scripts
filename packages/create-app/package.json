@@ -1,6 +1,6 @@
 {
   "name": "@spedue/create-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "private": false,
   "publishConfig": {
@@ -19,7 +19,7 @@
     "start": "rm -rf test-app && yarn build && node dist/index.js test-app --template='file:/Users/joshuarasmussen/Desktop/Code/websites/joshrasmussen/templates/react-template'"
   },
   "dependencies": {
-    "@spedue/utils": "^0.1.0",
+    "@spedue/utils": "^0.1.1",
     "chalk": "^3.0.0",
     "fs-extra": "^8.1.0",
     "typescript": "^3.7.5"
