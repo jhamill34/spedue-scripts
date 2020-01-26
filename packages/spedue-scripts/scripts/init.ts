@@ -11,17 +11,22 @@ type Template = {
   name: string
 }
 
+type StringMap = {
+  [key: string]: string
+}
+
 type Package = {
   name: string
   version: string
+  license: string
   private: boolean
-  scripts: { [key: string]: string }
+  scripts: StringMap
   prettier: string
   eslintConfig: {
     extends: string
   }
-  dependencies: { [key: string]: string }
-  devDependencies: { [key: string]: string }
+  dependencies: StringMap
+  devDependencies: StringMap
 }
 
 async function getTemplateInfo(template: string): Promise<Template> {
@@ -31,13 +36,11 @@ async function getTemplateInfo(template: string): Promise<Template> {
   const match = template.match(/^file:(.*)$/)
   if (match) {
     const templatePath = match[1]
-    // TODO: should we assert this type?
     const templateInfo: Package = await import(
       path.join(templatePath, 'package.json')
     )
 
     name = templateInfo.name
-
     location = templatePath
   } else {
     name = `@spedue/${template}-template`
@@ -94,62 +97,67 @@ async function main(): Promise<void> {
     '..'
   )
 
-  // TODO: should we assert this type?
   const templateJson: Package = await import(
     path.join(templatePath, 'template.json')
   )
 
-  // TODO: should we assert this type?
   const packageJson: Package = await import(
     path.join(paths.appRoot, 'package.json')
   )
 
-  packageJson.prettier = '@spedue/prettier-config'
-  packageJson.eslintConfig = {
-    extends: '@spedue/eslint-config',
-  }
-
-  packageJson.scripts = {
-    build: 'spedue pack',
-    clean: 'spedue clean',
-    compile: "spedue compile 'src/**/*' --noEmit",
-    lint: 'spedue lint',
-    start: 'spedue start',
-    test: 'spedue test',
+  const resultJson: Package = {
+    name: packageJson.name,
+    version: packageJson.version,
+    license: 'MIT',
+    private: packageJson.private,
+    scripts: {
+      build: 'spedue pack',
+      clean: 'spedue clean',
+      compile: "spedue compile 'src/**/*' --noEmit",
+      lint: 'spedue lint',
+      start: 'spedue start',
+      test: 'spedue test',
+    },
+    prettier: '@spedue/prettier-config',
+    eslintConfig: {
+      extends: '@spedue/eslint-config',
+    },
+    dependencies: {},
+    devDependencies: {},
   }
 
   if (templateJson.dependencies) {
     if (packageJson.dependencies) {
-      packageJson.dependencies = {
+      resultJson.dependencies = {
         ...packageJson.dependencies,
         ...templateJson.dependencies,
       }
     } else {
-      packageJson.dependencies = templateJson.dependencies
+      resultJson.dependencies = templateJson.dependencies
     }
   }
 
   if (templateJson.devDependencies) {
     if (packageJson.devDependencies) {
-      packageJson.devDependencies = {
+      resultJson.devDependencies = {
         ...packageJson.devDependencies,
         ...templateJson.devDependencies,
       }
     } else {
-      packageJson.devDependencies = templateJson.devDependencies
+      resultJson.devDependencies = templateJson.devDependencies
     }
   }
 
   if (templateJson.scripts) {
-    packageJson.scripts = {
-      ...packageJson.scripts,
+    resultJson.scripts = {
+      ...resultJson.scripts,
       ...templateJson.scripts,
     }
   }
 
   fs.writeFileSync(
     path.join(paths.appRoot, 'package.json'),
-    JSON.stringify(packageJson, null, 2) + os.EOL
+    JSON.stringify(resultJson, null, 2) + os.EOL
   )
 
   console.log(chalk.cyan(`✅ Copying over base source files from the template`))
