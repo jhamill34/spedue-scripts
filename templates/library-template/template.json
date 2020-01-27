@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "build": "spedue compile"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@mdx-js/react": "^1.5.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "theme-ui": "^0.2.52"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "4",
+    "@testing-library/react": "^9.4.0",
+    "@types/jest": "^24.9.0",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "jest-emotion": "^10.0.27",
+    "typescript": "^3.7.5"
+  }
+}

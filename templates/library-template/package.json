@@ -1,0 +1,10 @@
+{
+  "name": "@spedue/library-template",
+  "version": "0.0.0",
+  "main": "template.json",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,5 +1,7 @@
+import path from 'path'
 import chalk from 'chalk'
-import jest from 'jest'
+import { run as jestRun } from 'jest-cli'
+import fs from 'fs-extra'
 import { parseOptions, Options } from '@spedue/utils'
 import { paths } from '../config/paths'
 
@@ -7,13 +9,48 @@ process.on('unhandledRejection', err => {
   throw err
 })
 
-function test(argv: Options): void {
+async function test(argv: Options): Promise<void> {
   const jestArgs = []
 
-  const config = {
-    rootDir: paths.appRoot,
-    preset: 'ts-jest',
+  // Determine test setup file locations
+  const userTestSetup = fs.existsSync(
+    path.join(paths.appRoot, 'src/setupTests.ts')
+  )
+    ? '<rootDir>/src/setupTests.ts'
+    : undefined
+
+  const jestSetup = path.relative(
+    paths.appRoot,
+    require.resolve('../config/jestSetup')
+  )
+
+  const setupFiles = [`<rootDir>/${jestSetup}`]
+  if (userTestSetup) {
+    setupFiles.push(userTestSetup)
   }
+
+  const packageJson = await import(path.join(paths.appRoot, 'package.json'))
+
+  const config = {
+    transform: {
+      '^.+\\.tsx?$': 'ts-jest',
+    },
+    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$',
+    testPathIgnorePatterns: ['node_modules', '.cache', 'public', '.next'],
+    transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
+    globals: {
+      __PATH_PREFIX__: '',
+    },
+  }
+
+  if (packageJson.jestConfig) {
+    Object.assign(config, packageJson.jestConfig)
+  }
+
+  Object.assign(config, {
+    rootDir: paths.appRoot,
+    setupFiles,
+  })
 
   jestArgs.push('--config', JSON.stringify(config))
 
@@ -21,7 +58,7 @@ function test(argv: Options): void {
     jestArgs.push('--watch')
   }
 
-  jest.run(jestArgs)
+  jestRun(jestArgs)
 }
 
 function main(): void {

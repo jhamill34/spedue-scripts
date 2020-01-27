@@ -1,0 +1,10 @@
+{
+  "name": "@spedue/nextjs-template",
+  "version": "0.0.0",
+  "main": "template.json",
+  "license": "MIT",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  }
+}

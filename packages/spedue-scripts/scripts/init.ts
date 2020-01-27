@@ -25,6 +25,12 @@ type Package = {
   eslintConfig: {
     extends: string
   }
+  jestConfig?: {
+    testEnvironment: string
+    testRegex: string
+    testPathIgnorePatterns: string[]
+    transformIgnorePatterns: string[]
+  }
   dependencies: StringMap
   devDependencies: StringMap
 }
@@ -155,6 +161,10 @@ async function main(): Promise<void> {
     }
   }
 
+  if (templateJson.jestConfig) {
+    resultJson.jestConfig = templateJson.jestConfig
+  }
+
   fs.writeFileSync(
     path.join(paths.appRoot, 'package.json'),
     JSON.stringify(resultJson, null, 2) + os.EOL
@@ -175,10 +185,18 @@ async function main(): Promise<void> {
   })
 
   console.log(chalk.cyan(`✅ Creating a basic gitignore file`))
-  fs.writeFileSync(
-    path.join(paths.appRoot, '.gitignore'),
-    ['node_modules', 'dist', 'build'].join('\n')
-  )
+  if (fs.existsSync(path.join(paths.appRoot, 'gitignore'))) {
+    fs.moveSync(
+      path.join(paths.appRoot, 'gitignore'),
+      path.join(paths.appRoot, '.gitignore'),
+      { overwrite: true }
+    )
+  } else {
+    fs.writeFileSync(
+      path.join(paths.appRoot, '.gitignore'),
+      ['node_modules', 'dist', 'build'].join('\n')
+    )
+  }
 
   console.log(chalk.cyan(`✅ Installing git hooks to make your life easier`))
   fs.copySync(
