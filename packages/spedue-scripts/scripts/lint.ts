@@ -1,3 +1,4 @@
+import path from 'path'
 import chalk from 'chalk'
 import { CLIEngine } from 'eslint'
 import { parseOptions, Options } from '@spedue/utils'
@@ -12,6 +13,7 @@ async function lint(argv: Options): Promise<void> {
     const linter = new CLIEngine({
       cwd: paths.appRoot,
       fix: true,
+      ignorePath: path.join(paths.appRoot, '.gitignore'),
     })
 
     let report
