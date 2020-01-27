@@ -33,6 +33,7 @@ type Package = {
   }
   dependencies: StringMap
   devDependencies: StringMap
+  resolutions?: StringMap
 }
 
 async function getTemplateInfo(template: string): Promise<Template> {
@@ -163,6 +164,10 @@ async function main(): Promise<void> {
 
   if (templateJson.jestConfig) {
     resultJson.jestConfig = templateJson.jestConfig
+  }
+
+  if (templateJson.resolutions) {
+    resultJson.resolutions = templateJson.resolutions
   }
 
   fs.writeFileSync(
