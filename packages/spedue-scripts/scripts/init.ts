@@ -203,7 +203,7 @@ async function main(): Promise<void> {
   } else {
     fs.writeFileSync(
       path.join(paths.appRoot, '.gitignore'),
-      ['node_modules', 'dist', 'build'].join('\n')
+      ['node_modules', 'dist', 'build', '.cache', 'public', '.next'].join('\n')
     )
   }
 

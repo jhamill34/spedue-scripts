@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "template.json",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "publishConfig": {
     "access": "public"
   }

@@ -11,7 +11,7 @@ function resolveApp(relativePath: string): string {
 export const paths = {
   appRoot: resolveApp('.'),
   appBuild: resolveApp('build'),
-  appHtml: resolveApp('public/index.html'),
+  appHtml: resolveApp('static/index.html'),
   appTsConfig: ts.findConfigFile(appDir, ts.sys.fileExists, 'tsconfig.json'),
   appTsDist: resolveApp('dist'),
   appSrc: resolveApp('src'),

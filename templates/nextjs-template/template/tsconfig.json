@@ -1,0 +1,37 @@
+{
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "target": "es6",                     
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,                
+    "jsx": "preserve",    
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "sourceMap": true,                   
+    "removeComments": true,              
+    "downlevelIteration": true,          
+    "strict": true,                      
+    "noUnusedLocals": true,              
+    "noUnusedParameters": true,          
+    "noImplicitReturns": true,           
+    "noFallthroughCasesInSwitch": true,  
+    "esModuleInterop": true,             
+    "experimentalDecorators": true,      
+    "emitDecoratorMetadata": true,       
+    "skipLibCheck": true,
+    "declaration": true,
+    "isolatedModules": true
+  }
+}
