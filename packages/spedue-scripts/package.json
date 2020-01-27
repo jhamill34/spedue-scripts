@@ -49,7 +49,7 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.3.0",
-    "typescript": "^3.7.5",
+    "ts-morph": "^6.0.2",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.10.1"
   },

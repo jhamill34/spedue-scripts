@@ -19,6 +19,8 @@ type Package = {
   name: string
   version: string
   license: string
+  main: string
+  types: string
   private: boolean
   scripts: StringMap
   prettier: string
@@ -115,6 +117,8 @@ async function main(): Promise<void> {
   const resultJson: Package = {
     name: packageJson.name,
     version: packageJson.version,
+    main: 'dist/index.js',
+    types: 'dist/index.d.ts',
     license: 'MIT',
     private: packageJson.private,
     scripts: {

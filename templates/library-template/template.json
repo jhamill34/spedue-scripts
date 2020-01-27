@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "spedue compile"
+    "build": "spedue compile 'src/index.ts'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
@@ -15,6 +15,7 @@
     "@types/jest": "^24.9.0",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "@types/theme-ui": "^0.2.7",
     "jest-emotion": "^10.0.27",
     "typescript": "^3.7.5"
   }
