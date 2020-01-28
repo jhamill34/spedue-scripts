@@ -2,13 +2,14 @@
 
 echo $GIT_DIR
 
-STAGED=$(git diff --staged --name-only)
+STAGED=$(git diff --staged --name-only --diff-filter=ACM)
 TS_STAGED=$(echo "${STAGED}" | grep -E '\.tsx?$' | tr '\n' ' ')
 JS_STAGED=$(echo "${STAGED}" | grep -E '\.jsx?$' | tr '\n' ' ')
 
 STATUS=0
 
 tsLint() {
+  echo "Linting Changed TypeScript files"
   yarn lint $TS_STAGED >/dev/null
 
   STATUS=$?
@@ -16,7 +17,8 @@ tsLint() {
     echo "TypeScript linting failed with exit code $STATUS"
     exit $STATUS
   fi
-
+  
+  echo "Making Sure Code Still Compiles"
   yarn compile >/dev/null
   
   STATUS=$?
@@ -29,6 +31,7 @@ tsLint() {
 }
 
 jsLint() {
+  echo "Linting Changed JavaScript files"
   yarn lint $JS_STAGED >/dev/null
   
   STATUS=$?
