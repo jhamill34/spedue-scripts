@@ -22,6 +22,7 @@ type Package = {
   main: string
   types: string
   private: boolean
+  workspaces?: string[]
   scripts: StringMap
   prettier: string
   eslintConfig: {
@@ -135,6 +136,11 @@ async function main(): Promise<void> {
     },
     dependencies: {},
     devDependencies: {},
+  }
+
+  if (templateJson.workspaces) {
+    resultJson.private = true
+    resultJson.workspaces = templateJson.workspaces
   }
 
   if (templateJson.dependencies) {

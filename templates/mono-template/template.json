@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "lerna run build",
+    "clean": "lerna run clean",
+    "compile": "lerna run compile",
+    "test": "lerna run test"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
