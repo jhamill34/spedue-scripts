@@ -19,6 +19,7 @@ function configure(): Linter.Config {
       browser: true,
       jest: true,
       node: true,
+      es6: true,
     },
     parserOptions: {
       ecmaVersion: 2018,

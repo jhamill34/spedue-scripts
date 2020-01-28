@@ -23,7 +23,7 @@
     "@commitlint/lint": "^8.3.5",
     "@commitlint/load": "^8.3.5",
     "@spedue/babel-preset": "^0.1.1",
-    "@spedue/eslint-config": "^0.1.1",
+    "@spedue/eslint-config": "^0.1.2",
     "@spedue/prettier-config": "^0.1.1",
     "@spedue/utils": "^0.1.1",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
