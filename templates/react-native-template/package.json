@@ -1,6 +1,6 @@
 {
   "name": "@spedue/react-native-template",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "template.json",
   "license": "MIT",
   "private": true,

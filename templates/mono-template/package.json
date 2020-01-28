@@ -1,6 +1,6 @@
 {
   "name": "@spedue/mono-template",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "template.json",
   "license": "MIT",
   "private": false,
