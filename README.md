@@ -20,8 +20,10 @@ create-spedue-app my-app-name —-template=template-name
 Jest is able to run out of the box and is ran by adding the line to your project `package.json`
 
 ```json
-“scripts”: {
-	“test”: “spedue test”
+{
+  "scripts": {
+    "test": "spedue test"
+  }
 }
 ```
 
@@ -31,8 +33,10 @@ If there is additional configuration required to run your tests (i.e., test in a
 
 **example**
 ```json
-“jestConfig”: {
-	“testRegex”: “\\.*”
+{
+  "jestConfig": {
+    "testRegex": "\\.*"
+  }
 }
 ```
 
@@ -105,5 +109,3 @@ This plugin was highly influenced by:
 [4]: https://github.com/typicode/husky
 [5]: https://github.com/okonet/lint-staged
 [6]: https://github.com/conventional-changelog/conventional-changelog
-
-#documentation
