@@ -36,7 +36,7 @@ async function test(argv: Options): Promise<void> {
       '^.+\\.tsx?$': 'ts-jest',
     },
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$',
-    testPathIgnorePatterns: ['node_modules', '.cache', 'public', '.next'],
+    testPathIgnorePatterns: ['node_modules', '.cache', 'public'],
     transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
     globals: {
       __PATH_PREFIX__: '',
