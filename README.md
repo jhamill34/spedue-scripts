@@ -79,6 +79,16 @@ Will automatically run all tests associated with your project. This is the equiv
 yarn test —-noWatch
 ```
 
+## Templates
+Currently there are only 5 templates that I’ve written, each of which is modeled after how CRA writes their templates. 
+
+| Template Name | CLI Option | 
+|:--------------|:-----------|
+| React (default) | `--template=react` |
+| NextJS | `--template=nextjs` |
+| Gatsby | `--template=gatsby` |
+| Component Library | `--template=library` |
+| Lerna Mono Repo | `--template=mono` |
 
 ## Disclaimers
 Yes this project is a cheap ripoff of the [Create React App][3] project but I personally wanted to spend some time really digging into how all the moving parts of that project work. How do you configure Webpack, Babel, Jest, TypeScript etc.? It’s actually setup to my personal preferences and does a little bit more than just React (such as Next, Gatsby, and Lerna) but at the end of the day its just that, it’s *my* preferences. If you see any bugs or have any recommendations feel free to submit a PR 😄
