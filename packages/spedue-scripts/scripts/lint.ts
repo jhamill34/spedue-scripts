@@ -18,7 +18,17 @@ async function lint(argv: Options): Promise<void> {
 
     let report
     if (argv.positional.length > 0) {
-      report = linter.executeOnFiles(argv.positional)
+      const nonIgnoredFiles = argv.positional.filter(
+        f => !linter.isPathIgnored(f)
+      )
+      const ignoreCount = argv.positional.length - nonIgnoredFiles.length
+      if (ignoreCount == 1) {
+        console.log(chalk.cyan(`    Ignoring 1 file`))
+      } else if (ignoreCount > 1) {
+        console.log(chalk.cyan(`    Ignoring ${ignoreCount} files`))
+      }
+
+      report = linter.executeOnFiles(nonIgnoredFiles)
     } else {
       report = linter.executeOnFiles(['*/**/*.{js,ts,tsx}'])
     }
