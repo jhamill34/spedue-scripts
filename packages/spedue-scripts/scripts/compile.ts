@@ -1,6 +1,7 @@
 import chalk from 'chalk'
 import { parseOptions, Options } from '@spedue/utils'
 import { Project, getCompilerOptionsFromTsConfig, EmitResult } from 'ts-morph'
+import glob from 'glob'
 import { paths } from '../config/paths'
 
 process.on('unhandledRejection', err => {
@@ -23,7 +24,12 @@ async function compile(argv: Options): Promise<EmitResult> {
 
     if (argv.positional[0]) {
       console.log(chalk.cyan(`Adding files from ${argv.positional[0]}`))
-      program.addSourceFilesAtPaths(argv.positional[0])
+      const filesToCompile = glob
+        .sync(argv.positional[0])
+        .filter(f => f.match(/\.tsx?$/))
+
+      console.log(filesToCompile)
+      program.addSourceFilesAtPaths(filesToCompile)
     } else {
       console.log(
         chalk.cyan(
