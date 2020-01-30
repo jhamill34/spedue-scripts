@@ -29,6 +29,11 @@ async function main(): Promise<void> {
   fs.mkdirpSync(path.join(process.cwd(), dirName))
   process.chdir(realDirName)
 
+  console.log(chalk.cyan(`✅ Creating a local git repository`))
+  crossSpawn.sync('git', ['init'], {
+    cwd: realDirName,
+  })
+
   console.log(chalk.cyan(`✅ Creating a Yarn Repo 🧶`))
 
   const initialPackageJson = {

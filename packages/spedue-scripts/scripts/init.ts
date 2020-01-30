@@ -213,17 +213,7 @@ async function main(): Promise<void> {
     )
   }
 
-  console.log(chalk.cyan(`✅ Installing git hooks to make your life easier`))
-  fs.copySync(
-    path.join(__dirname, '..', 'git-hooks'),
-    path.join(paths.appRoot, '.git', 'hooks')
-  )
-
-  console.log(chalk.cyan(`✅ Initializing a git repository for ya`))
-  crossSpawn.sync('git', ['init'], {
-    cwd: paths.appRoot,
-  })
-
+  console.log(chalk.cyan(`✅ Creating your first commit! 🎊`))
   // Last step!
   crossSpawn.sync('git', ['add', '.'], {
     cwd: paths.appRoot,
