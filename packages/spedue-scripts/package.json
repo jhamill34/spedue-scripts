@@ -27,6 +27,7 @@
     "@spedue/babel-preset": "^0.1.1",
     "@spedue/eslint-config": "^0.1.2",
     "@spedue/prettier-config": "^0.1.1",
+    "@spedue/storybook-preset": "*",
     "@spedue/utils": "^0.1.1",
     "@storybook/react": "^5.3.9",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
