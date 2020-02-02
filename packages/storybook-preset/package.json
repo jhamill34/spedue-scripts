@@ -1,0 +1,33 @@
+{
+  "name": "@spedue/storybook-preset",
+  "version": "0.1.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --outDir ./dist",
+    "clean": "rm -rf dist",
+    "compile": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "preview.js"
+  ],
+  "dependencies": {
+    "@mdx-js/loader": "^1.5.5",
+    "@spedue/babel-preset": "*",
+    "@storybook/addon-docs": "^5.3.9",
+    "babel-loader": "^8.0.6",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-is": "^16.12.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/webpack": "^4.41.3",
+    "typescript": "^3.7.5"
+  }
+}

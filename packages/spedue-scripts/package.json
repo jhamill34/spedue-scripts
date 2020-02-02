@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --outDir dist --rootDir . && cp -R git-hooks dist",
+    "build": "tsc --outDir dist --rootDir . && cp -R git-hooks dist && cp -R storybook dist",
     "clean": "rm -rf dist",
     "compile": "tsc --noEmit",
     "postinstall": "node ./dist/scripts/installHooks.js",
@@ -57,6 +57,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "devDependencies": {
+    "@storybook/react": "^5.3.9",
     "@types/cross-spawn": "^6.0.1",
     "@types/fs-extra": "^8.0.1",
     "@types/html-webpack-plugin": "^3.2.1",
