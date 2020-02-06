@@ -1,6 +1,6 @@
 {
   "name": "@spedue/gatsby-template",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "template.json",
   "license": "MIT",
   "private": false,
