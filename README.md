@@ -1,4 +1,9 @@
 # 🔧 Spedue Create App 
+
+This project has been moved to: https://gitlab.com/joshrasmussen/spedue-scripts
+
+---
+
 An easy way to setup and configure TypeScript projects with all the tools that don’t actually involve your application code 😅 
 
 > “Configuration should not stand in the way of getting started”
